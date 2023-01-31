@@ -215,6 +215,123 @@ div.content {
                 </Ul>
             </Nav>
         </Header>
+        <h2>Welcome to FlyAway</h2>
+  
+  
+    <h1>Search Flight</h1>
+<form style="margin-top:5%; border:2px solid black;" class="form-inline" action="#">
+
+
+  <label for="text"> Travel Date:</label>
+  <input type="date" id=date" placeholder="Enter Date" name="date" required>
+  <label for="text">Source:</label>
+ <select name="source" id="source" class="form-control">
+ <option value="All">All</option>
+    <option value="Delhi">Delhi</option>
+    <option value="Mumbai">Mumbai</option>
+    <option value="Chennai">Chennai</option>
+    <option value="Hyderabad">Hyderabad</option>
+    <option value="Kochi">Kochi</option>
+    <option value="Kerela">Kerela</option>
+    <option value="Ahmedabad">Ahmedabad</option>
+ </select>
+  <label for="text">Destination:</label>
+   <select name="destination" id="destination" class="form-control">
+   <option value="All">All</option>
+    <option value="Mumbai">Mumbai</option>
+    <option value="Delhi">Delhi</option>
+    <option value="Chennai">Chennai</option>
+    <option value="Hyderabad">Hyderabad</option>
+    <option value="Kochi">Kochi</option>
+    <option value="Kerela">Kerela</option>
+    <option value="Ahmedabad">Ahmedabad</option>
+ </select>
+ 
+   <label for="text">No of passengers:</label>
+   <select name="pno" id="pno" class="form-control">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+ </select>
+ 
+  <button type="submit" name="search" value="search"><i class="fa fa-search" style="font-size:24px"></i></button>
+</form>
+<br>
+
+  
+<%
+String search= request.getParameter("search");
+if(search!=null)
+{
+	%>
+	
+	<table style="width:100%">
+  <tr style="background-color:black; color:white;">
+    <td>Flight ID</td>
+    <td>Airlines</td>
+    <td>Source</td>
+    <td>Destination</td>
+     <td>Ticket Price</td>
+    
+  </tr>
+	
+	<%
+		String date = request.getParameter("date");
+				      String source = request.getParameter("source");
+				      String destination = request.getParameter("destination");
+				      String pno = request.getParameter("pno");
+				      
+				      List <Flight> flight =   FlightImpl.getAllFlights();
+
+				      if(source.equals("All")||destination.equals("All"))
+				      {
+				    	  for(Flight f: flight)
+				          {
+		%>
+        	<tr>
+        	 <td><%=f.getF_ID() %></td>
+        <td><%=f.getAirline().getAirlineName() %></td>
+        <td><%=f.getPlaces().getSource() %></td>
+        <td><%=f.getPlaces().getDestination() %></td>
+        <td><%=f.getTicketPrice() %> </td>
+        <td><a style="color:green;border-style: 2px solid;" href="RegisterDetails.jsp?fid=<%= f.getF_ID()%>&pno=<%=pno%>&date=<%=date%>"> Book Flight</a></td>
+        	</tr>
+        	<% 
+        	  }
+          
+         search = null; 
+    }
+      
+      else{
+      for(Flight f: flight)
+      {
+    	  if(f.getPlaces().getSource().equalsIgnoreCase(source)&&f.getPlaces().getDestination().equalsIgnoreCase(destination) )
+    	  {
+   	   //out.println("Airlines = "+f.getAirline().getAirlineName()+" Source = "+f.getPlaces().getSource()+" Destination = "+f.getPlaces().getDestination()+" Ticket Price"+f.getTicketPrice());
+    	%>
+    	<tr>
+    	 <td><%=f.getF_ID() %></td>
+    <td><%=f.getAirline().getAirlineName() %></td>
+    <td><%=f.getPlaces().getSource() %></td>
+    <td><%=f.getPlaces().getDestination() %></td>
+    <td><%=f.getTicketPrice() %> </td>
+    <td><a style="color:green;border-style: 2px solid;" href="RegisterDetails.jsp?fid=<%= f.getF_ID()%>&pno=<%=pno%>&date=<%=date%>"> Book Flight</a></td>
+    	</tr>
+    	<% 
+    	  }
+    	  }
+      
+     search = null; 
+}
+}
+%>
+
+
+</table>
  
 </div>
 
