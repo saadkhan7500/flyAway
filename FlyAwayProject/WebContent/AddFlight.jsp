@@ -12,7 +12,7 @@
 <body>
 
 <%
-            String airline =   request.getParameter("airline");
+String airline =   request.getParameter("airline");
             String  source =   request.getParameter("source");
             String destination = request.getParameter("destination");
             String ticketPrice = request.getParameter("price");
@@ -21,11 +21,9 @@
             Places p = new Places(source, destination);
             Flight f = new Flight(a,p,ticketPrice);
             
-            AddFlightBusinessLogic.addFlightDetails(f);
+            FlightImpl.addFlightDetails(f);
   
            out.println("Flight details added successfully");
-
-
 %>
 
 </body>

@@ -70,7 +70,7 @@ span.psw {
 
 
 
-<form action="AdminLoginImpl.jsp" method="post";>
+<form action="AdminLoginImpl.jsp" method="post">
   
 
   <div class="container">

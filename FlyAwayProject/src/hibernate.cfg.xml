@@ -15,6 +15,9 @@
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
 
 		<mapping class="entities.Admin" />
-	
+		<mapping class="entities.Airlines" />
+		<mapping class="entities.Places" />
+		<mapping class="entities.Flight" />
+
 	</session-factory>
 </hibernate-configuration>
