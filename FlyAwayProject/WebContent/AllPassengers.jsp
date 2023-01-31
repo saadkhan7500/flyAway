@@ -9,6 +9,14 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 <style>
 @Import
 	Url("Https://Fonts.Googleapis.Com/Css2?Family=Open+Sans&Display=Swap");
@@ -151,47 +159,47 @@ div.content {
 </style>
 </head>
 <body>
+<div class="sidebar">
+		<a class="btn btn-warning" href="AdminDashboard.jsp">Home</a>
+		<a class="btn btn-warning" href="AllPlaces.jsp">All Places</a> <a class="btn btn-warning" href="AllAirlines.jsp">All
+			Airlines</a> <a class="btn btn-warning" href="AllFlights.jsp">All FLights</a> <a
+			 class="btn btn-warning" href="AllPassengers.jsp">All Passenger</a> <a
+			class="btn btn-warning" Href="ResetPassword.jsp">Reset Password</a>
 
-	<div class="sidebar">
-		<a style="color: blue" class="active" href="AdminDashboard.jsp">Home</a>
-		<a href="#news">News</a> <a Href="ResetPassword.jsp">Reset
-			Password</a> <a href="AllFlights.jsp">All Flights</a>
 	</div>
 
 	<div class="content">
 		<Header Class="Site-Header">
 			<Div Class="Site-Identity">
 				<H1>
-					<A Href="AdminDashboard.jsp" style="color: #C70039;">Admin
+					<A Href="#" style="color: #C70039;">Admin
 						Dashboard <i class="fa fa-plane" style="font-size: 25px;"></i>
 					</A>
 				</H1>
 			</Div>
-			<Nav Class="Site-Navigation">
-				<Ul Class="Nav">
-					<Li><A Href="#">Home</A></Li>
-					<Li><A Href="#">About</A></Li>
-					<Li><A Href="#">Blog</A></Li>
-					<Li><A Href="index.jsp">Logout</A></Li>
-				</Ul>
-			</Nav>
+			 <Nav Class="Site-Navigation">
+                <Ul Class="Nav">
+                    <Li><A class="btn btn-danger" Href="index.jsp">Logout</A></Li>
+                </Ul>
+            </Nav>
 		</Header>
-		<h1>All flight details</h1>
+		<h1>All Passengers</h1>
 
 
 
-		<table style="width: 100%">
-			<tr style="background-color: black; color: white;">
-				<td>Passenger name</td>
-				<td>Passenger Email</td>
-				<td>Passenger Age</td>
-				<td>Flight_ID</td>
-				<td>No. of Passengers</td>
-				<td>Date of travel</td>
-				<td>Ticket No.</td>
+		<table style="width: 100%" class="table table-striped table-dark">
+			<thead class="thead-light">
+				<tr style="background-color: black; color: white;">
+					<td>Passenger name</td>
+					<td>Passenger Email</td>
+					<td>Passenger Age</td>
+					<td>Flight_ID</td>
+					<td>No. of Passengers</td>
+					<td>Date of travel</td>
+					<td>Ticket No.</td>
 
-			</tr>
-
+				</tr>
+			</thead>
 			<%
 			List<Passenger> pes = PassengerImpl.getAllPessengers();
 

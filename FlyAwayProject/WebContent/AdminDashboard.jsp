@@ -2,146 +2,186 @@
 <html>
 <head>
 <title>Admin Dashboard</title>
+<title>FlyAwaySystem</title>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
 <style>
-@Import
-	Url("Https://Fonts.Googleapis.Com/Css2?Family=Open+Sans&Display=Swap");
+@import
+	url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-Body {
-	Font-Family: "Open Sans", Sans-Serif;
-	Margin: 0;
-	background-color: "green";
-}
-
-A {
-	Text-Decoration: None;
-	Color: #000;
-}
-
-A:hover {
-	Color: Rgb(179, 179, 179);
-}
-
-.Site-Header {
-	Border-Bottom: 1px Solid #Ccc;
-	Padding: 0.5em 1em;
-	Display: Flex;
-	Justify-Content: Space-Between;
-}
-
-.Site-Identity H1 {
-	Font-Size: 1.5em;
-	Margin: 0.6em 0;
-	Display: Inline-Block;
-	background-color: "green";
-}
-
-.Site-Navigation Ul, .Site-Navigation Li {
-	Margin: 0;
-	Padding: 0;
-}
-
-.Site-Navigation Li {
-	Display: Inline-Block;
-	Margin: 1.4em 1em 1em 1em;
+/* Resetting */
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
 }
 
 body {
-	margin: 0;
-	font-family: "Lato", sans-serif;
+	background-color: #dcf4ff;
 }
 
-.sidebar {
-	margin: 0;
-	padding: 0;
-	width: 200px;
-	background-color: #f1f1f1;
-	position: fixed;
-	height: 100%;
-	overflow: auto;
+.wrapper {
+	max-width: 800px;
+	margin: 50px auto;
 }
 
-.sidebar a {
+.wrapper form {
+	padding: 30px 50px;
+}
+
+.wrapper form .form-group {
+	padding-bottom: .5rem;
+}
+
+.wrapper form .option {
+	position: relative;
+	padding-left: 25px;
+	cursor: pointer;
 	display: block;
-	color: black;
-	padding: 16px;
-	text-decoration: none;
 }
 
-.sidebar a.active {
-	background-color: #04AA6D;
-	color: white;
+.wrapper form .option input {
+	display: none;
 }
 
-.sidebar a:hover:not(.active) {
-	background-color: #555;
-	color: white;
-}
-
-div.content {
-	margin-left: 200px;
-	padding: 1px 16px;
-	height: 1000px;
-}
-
-@media screen and (max-width: 700px) {
-	.sidebar {
-		width: 100%;
-		height: auto;
-		position: relative;
-	}
-	.sidebar a {
-		float: left;
-	}
-	div.content {
-		margin-left: 0;
-	}
-}
-
-.form-inline {
-	display: flex;
-	flex-flow: row wrap;
-	align-items: center;
-}
-
-.form-inline label {
-	margin: 5px 10px 5px 0;
-}
-
-.form-inline input {
-	vertical-align: middle;
-	margin: 5px 10px 5px 0;
-	padding: 10px;
+.wrapper form .checkmark {
+	position: absolute;
+	top: 4px;
+	left: 0;
+	height: 17px;
+	width: 17px;
 	background-color: #fff;
-	border: 1px solid #ddd;
+	border: 1px solid #aaa;
+	border-radius: 50%;
 }
 
-.form-inline button {
-	padding: 10px 20px;
-	background-color: dodgerblue;
-	border: 1px solid #ddd;
-	color: white;
+.wrapper form .option input:checked ~.checkmark:after {
+	display: block;
+}
+
+.wrapper form .option .checkmark:after {
+	content: "";
+	width: 7px;
+	height: 7px;
+	display: block;
+	border-radius: 50%;
+	background-color: #333;
+	position: absolute;
+	top: 48%;
+	left: 52%;
+	transform: translate(-50%, -50%) scale(0);
+	transition: 200ms ease-in-out 0s;
+}
+
+.wrapper form .option:hover input[type="radio"] ~.checkmark {
+	background-color: #f4f4f4;
+}
+
+.wrapper form .option input[type="radio"]:checked ~.checkmark {
+	background: #fff;
+	color: #fff;
+	transition: 300ms ease-in-out 0s;
+}
+
+.wrapper form .option input[type="radio"]:checked ~.checkmark:after {
+	transform: translate(-50%, -50%) scale(1);
+	color: #fff;
+}
+
+.wrapper form a {
+	color: #333;
+}
+
+.wrapper form .form-control {
+	outline: none;
+	border: none;
+}
+
+.wrapper form .form-control:focus {
+	box-shadow: none;
+}
+
+.wrapper form input[type="text"]:focus::placeholder {
+	color: transparent
+}
+
+input[type="date"] {
 	cursor: pointer;
 }
 
-.form-inline select {
-	padding: 10px 20px;
-	background-color: black;
-	border: 1px solid #ddd;
-	color: white;
-	cursor: pointer;
+.wrapper form .label::after {
+	position: absolute;
+	/* background-color: #fff; */
+	top: 5px;
+	left: 0px;
+	font-size: 0.9rem;
+	margin: 0rem 0.4rem;
+	text-transform: uppercase;
+	letter-spacing: 0.08rem;
+	font-weight: 600;
+	color: #999;
+	transition: all .2s ease-in-out;
+	transform: scale(0);
 }
 
-.form-inline button:hover {
-	background-color: royalblue;
+.wrapper form .label#from::after {
+	content: 'From';
 }
 
-@media screen and (max-width: 400px) {
-	.sidebar a {
-		text-align: center;
-		float: none;
+.wrapper form .label#to::after {
+	content: 'To';
+}
+
+.wrapper form .label#depart::after {
+	content: 'Depart Date';
+}
+
+.wrapper form .label#return::after {
+	content: 'Return Date';
+}
+
+.wrapper form .label#psngr::after {
+	content: 'Traveller(s)';
+}
+
+.wrapper form input[type="text"]:focus ~.label::after {
+	top: -15px;
+	left: 0px;
+	transform: scale(1);
+}
+
+.wrapper form input[type="date"]:focus ~.label::after {
+	top: -15px;
+	left: 0px;
+	transform: scale(1);
+}
+
+/* Margin */
+.margin {
+	margin: 2rem 0rem;
+}
+
+/* Media Queries */
+@media ( max-width : 575.5px) {
+	.wrapper {
+		margin: 10px;
+	}
+	.wrapper form {
+		padding: 20px;
+	}
+	.margin {
+		
 	}
 }
 </style>
@@ -149,12 +189,11 @@ div.content {
 <body>
 
 	<div class="sidebar">
-		 <a style="color: blue" class="active" href="AdminDashboard.jsp">Home</a>
-		 <a href="AllPlaces.jsp">All Places</a>
-         <a href="AllAirlines.jsp">All Airlines</a>
-         <a href="AllFlights.jsp">All FLights</a>
-         <a href="AllPassengers.jsp">All Passenger</a>
-		 <a Href="ResetPassword.jsp">Reset Password</a>
+		<a class="btn btn-warning" href="AdminDashboard.jsp">Home</a>
+		<a class="btn btn-warning" href="AllPlaces.jsp">All Places</a> <a class="btn btn-warning" href="AllAirlines.jsp">All
+			Airlines</a> <a class="btn btn-warning" href="AllFlights.jsp">All FLights</a> <a
+			 class="btn btn-warning" href="AllPassengers.jsp">All Passenger</a> <a
+			class="btn btn-warning" Href="ResetPassword.jsp">Reset Password</a>
 
 	</div>
 
@@ -163,41 +202,76 @@ div.content {
 			<Div Class="Site-Identity">
 				<H1>
 					<A Href="index.jsp" style="color: #C70039;">Admin Dashboard <i
-						class="fa fa-plane" style="font-size: 25px;"></i></A>
+						class="fa fa-plane" style="font-size: 25px;"></i></A> <A
+						style="margin-left: 350%;" Href="index.jsp">Logout</A>
 				</H1>
 			</Div>
 
 		</Header>
 		<h1>Add flight details</h1>
-		<form style="margin-top: 10%; border: 2px dashed black;"
-			class="form-inline" action="AddFlight.jsp">
+		
+	
+	<div class="wrapper bg-white">
+		<form action="AddFlight.jsp">
+
+			<div class="form-group d-sm-flex margin">
+				<div
+					class="d-flex align-items-center flex-fill me-sm-1 my-sm-0 my-4 border-bottom position-relative">
+
+					<div class="label" id="from">
+						<label for="text"> Airlines:</label>
+					</div>
+					<input type="text" id="email" placeholder="Enter Airline name"
+						name="airline" class="form-control">
+				</div>
 
 
-			<label for="text"> Airlines:</label> <input type="text" id="email"
-				placeholder="Enter Airline name" name="airline"> <label
-				for="text">Source:</label> <select name="source" id="source"
-				class="form-control">
-				<option value="Delhi">Delhi</option>
-				<option value="Mumbai">Mumbai</option>
-				<option value="Chennai">Chennai</option>
-				<option value="Hyderabad">Hyderabad</option>
-				<option value="Kochi">Kochi</option>
-				<option value="Kerela">Kerela</option>
-				<option value="Ahmedabad">Ahmedabad</option>
-			</select> <label for="text">Destination:</label> <select name="destination"
-				id="destination" class="form-control">
-				<option value="Mumbai">Mumbai</option>
-				<option value="Delhi">Delhi</option>
-				<option value="Chennai">Chennai</option>
-				<option value="Hyderabad">Hyderabad</option>
-				<option value="Kochi">Kochi</option>
-				<option value="Kerela">Kerela</option>
-				<option value="Ahmedabad">Ahmedabad</option>
-			</select> <label for="text">Ticket Price:</label> <input type="text" id="pwd"
-				placeholder="Enter ticket price" name="price">
-			<button type="submit">Submit</button>
+				<div
+					class="d-flex align-items-center flex-fill me-sm-1 my-sm-0 my-4 border-bottom position-relative">
+
+
+
+					<select name="source" id="source" class="form-control">
+						<option value="All">From</option>
+						<option value="Delhi">Delhi</option>
+						<option value="Mumbai">Mumbai</option>
+						<option value="Chennai">Chennai</option>
+						<option value="Hyderabad">Hyderabad</option>
+						<option value="Kochi">Kochi</option>
+						<option value="Kerela">Kerela</option>
+						<option value="Ahmedabad">Ahmedabad</option>
+					</select> <span class="fas fa-dot-circle text-muted"></span>
+				</div>
+				<div
+					class="d-flex align-items-center flex-fill ms-sm-1 my-sm-0 my-4 border-bottom position-relative">
+
+					<div class="label" id="to"></div>
+					<select name="destination" id="destination" class="form-control">
+						<option value="All">To</option>
+						<option value="Mumbai">Mumbai</option>
+						<option value="Delhi">Delhi</option>
+						<option value="Chennai">Chennai</option>
+						<option value="Hyderabad">Hyderabad</option>
+						<option value="Kochi">Kochi</option>
+						<option value="Kerela">Kerela</option>
+						<option value="Ahmedabad">Ahmedabad</option>
+					</select> <span class="fas fa-map-marker text-muted"></span>
+				</div>
+			</div>
+			<div
+				class="form-group border-bottom d-flex align-items-center position-relative">
+				<div class="label" id="psngr"></div>
+				<label for="text">Price:</label> <input type="text" id="pwd"
+					placeholder="Enter ticket price" name="price" class="form-control">
+			</div>
+			<div class="form-group my-3">
+				<button
+					class="fa fa-search btn-primary rounded-0 d-flex justify-content-center text-center p-3"
+					type="submit">Submit</button>
+			</div>
 		</form>
-	</div>
 
+	</div>
+</div>
 </body>
 </html>

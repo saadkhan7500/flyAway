@@ -9,6 +9,14 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 <style>
 @Import
 	Url("Https://Fonts.Googleapis.Com/Css2?Family=Open+Sans&Display=Swap");
@@ -209,9 +217,9 @@ div.content {
 <body>
 
 	<div class="sidebar">
-		<a class="active" href="index.jsp">Home</a> <a href="#news">News</a> <a
-			Href="AdminLogin.jsp">Admin Login</a> <a href="MyTicket.jsp">My
-			Tickets</a> <a href="#about">About</a>
+		<a class="btn btn-warning" href="index.jsp">Home</a> 
+		<a class="btn btn-warning" Href="AdminLogin.jsp">Admin
+			Login</a>
 	</div>
 
 	<div class="content">
@@ -224,16 +232,11 @@ div.content {
 			</Div>
 			<Nav Class="Site-Navigation">
 				<Ul Class="Nav">
-					<Li><A Href="index.jsp">Home</A></Li>
-					<Li><A Href="AdminLogin.jsp">Admin Login</A></Li>
-					<Li><A Href="#">About</A></Li>
-					<Li><A Href="#">Contact</A></Li>
+					<Li><A class="btn btn-primary" Href="index.jsp">Home</A></Li>
+					<Li><A class="btn btn-primary" Href="AdminLogin.jsp">Admin Login</A></Li>
 				</Ul>
 			</Nav>
 		</Header>
-		<h2>Welcome to FlyAway</h2>
-
-
 		<h1>My Tickets Details</h1>
 		<form style="margin-top: 5%; border: 2px solid black;"
 			class="form-inline" action="#">
@@ -254,22 +257,24 @@ div.content {
 		if (search != null) {
 		%>
 
-		<table style="width: 100%">
-			<tr style="background-color: black; color: white;">
-				<td>Flight ID</td>
-				<td>Name</td>
-				<td>Age</td>
-				<td>Email</td>
-				<td>Date</td>
-				<td>Ticket No</td>
-				<td>Price</td>
-				<td>No. of pessenger</td>
-				<td>Source</td>
-				<td>Destination</td>
-				<td>Airline</td>
+		<table style="width: 100%" class="table table-striped table-dark">
+			<thead class="thead-light">
+				<tr style="background-color: black; color: white;">
+					<td>Flight ID</td>
+					<td>Name</td>
+					<td>Age</td>
+					<td>Email</td>
+					<td>Date</td>
+					<td>Ticket No</td>
+					<td>Price</td>
+					<td>No. of pessenger</td>
+					<td>Source</td>
+					<td>Destination</td>
+					<td>Airline</td>
 
 
-			</tr>
+				</tr>
+			</thead>
 			<%!Flight fli = null;%>
 
 			<%

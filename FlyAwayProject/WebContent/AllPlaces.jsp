@@ -6,7 +6,17 @@
 <html>
 <head>
 <title>All Places</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 @Import Url("Https://Fonts.Googleapis.Com/Css2?Family=Open+Sans&Display=Swap");
@@ -153,22 +163,22 @@ div.content {
 <body>
 
 <div class="sidebar">
-  <a style="color:blue" class="active" href="index.jsp">Home</a>
-  <a href="#news">News</a>
-  
-</div>
+		<a class="btn btn-warning" href="AdminDashboard.jsp">Home</a>
+		<a class="btn btn-warning" href="AllPlaces.jsp">All Places</a> <a class="btn btn-warning" href="AllAirlines.jsp">All
+			Airlines</a> <a class="btn btn-warning" href="AllFlights.jsp">All FLights</a> <a
+			 class="btn btn-warning" href="AllPassengers.jsp">All Passenger</a> <a
+			class="btn btn-warning" Href="ResetPassword.jsp">Reset Password</a>
+
+	</div>
 
 <div class="content">
 <Header Class="Site-Header">
             <Div Class="Site-Identity">
-                <H1 ><A Href="index.jsp" style="color:#C70039;">Admin Dashboard <i class="fa fa-plane" style="font-size:25px;"></i></A></H1>
+                <H1 ><A Href="#" style="color:#C70039;">Admin Dashboard <i class="fa fa-plane" style="font-size:25px;"></i></A></H1>
             </Div>
             <Nav Class="Site-Navigation">
                 <Ul Class="Nav">
-                    <Li><A Href="#">Home</A></Li>
-                    <Li><A Href="#">About</A></Li>
-                    <Li><A Href="#">Blog</A></Li>
-                    <Li><A Href="index.jsp">Logout</A></Li>
+                    <Li><A class="btn btn-danger" Href="index.jsp">Logout</A></Li>
                 </Ul>
             </Nav>
         </Header>
@@ -176,12 +186,14 @@ div.content {
          
        
          
-         <table style="width:100%">
+         <table style="width:100%" class="table table-striped table-dark">
+         <thead class="thead-light">
   <tr style="background-color:black; color:white;">
     <td>Source</td>
      <td>Destination</td>
     
   </tr>
+  </thead>
 	
 	<%
 		List <Places> places =   PlacesImpl.getAllPlaces();

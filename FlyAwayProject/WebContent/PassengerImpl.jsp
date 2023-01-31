@@ -7,14 +7,26 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
 <a href="index.jsp">Home</a>
 <div style="margin-left:25%;">
-<h1>Below is the flight details you are booking</h1>
-<table style="width:70%; height:100px;border:2px solid black;">
+<h1 class="text text-warning">Below is the flight details you are booking</h1>
+<table style="width:70%" class="table table-striped table-dark">
+			<thead class="thead-light">
   <tr style="background-color:black; color:white;">
     <td>Flight ID</td>
     <td>Airlines</td>
@@ -23,6 +35,7 @@
      <td>Ticket Price</td>
     
   </tr>
+  </thead>
 	
 	<%
 		
@@ -61,21 +74,21 @@
 %>
 </table>
 <br>
-<h1>Scan below barcode and enter the text you got for confirm your booking</h1>
-<div style="margin-left:25%;">
-<img style="height:200px;width:200px" src="images/qr.png"/>
-
+<h1 style="margin-left: 10%" class="text text-warning">Scan and enter code</h1>
+<div style="margin-left:15%; border: 2px solid black; width: 20%;">
+<img style="height:200px;width:200px;padding-left: 20px;padding-top:20px " src="images/qr.png"/>
+<br><br>
 <form action="FinalPaymentPage.jsp" >
   
-  <input type="text" name="barcodeValue" placeholder="Enter the value here"/>
+  <input style="margin-left: 20px;" type="text" name="barcodeValue" placeholder="Enter the value here"/>
   <input type="hidden" name="fid" value="<%=fid%>">
   <input type="hidden" name="date" value="<%=date%>">
   <input type="hidden" name="pno" value="<%=pno%>">
   <input type="hidden" name="email" value="<%=email%>">
   <input type="hidden" name="name" value="<%=name%>">
   <input type="hidden" name="age" value="<%=age%>">
-  <input type="hidden" name="ticketNo" value="<%=ticketNo%>">
-  <input type="submit" value="submit" name="submit"/>
+  <input type="hidden" name="ticketNo" value="<%=ticketNo%>"> <br><br>
+  <input style="margin-left: 20px;margin-bottom: 10px "type="submit" value="submit" name="submit"/>
 
 </form>
 
